@@ -1,4 +1,3 @@
-```markdown
 # I0rd - Decentralized AI-Powered Crypto Trading App
 
 ## Overview
@@ -111,9 +110,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 
-
-
-```markdown
 # I0rd Roadmap - Journey to Decentralized AI Trading Excellence
 
 Welcome to the **I0rd Roadmap**, a detailed and imaginative guide charting the evolution of our decentralized AI-powered crypto trading app built on 0G’s Modular Layer 1 blockchain. This roadmap is a creative blueprint, blending technical milestones with a vision to transform crypto trading into a public good. Below, we illustrate each wave with vivid descriptions, objectives, deliverables, and conceptual diagrams to inspire and guide our development journey.
