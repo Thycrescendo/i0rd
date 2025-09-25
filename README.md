@@ -1,7 +1,5 @@
 # 🚀 I0rd - Decentralized AI-Powered Crypto Trading App
 
-![I0rd Banner](https://your-image-link-here) <!-- Replace with actual banner/logo if available -->
-
 ## 📖 Overview
 **I0rd** is a pioneering decentralized crypto trading application built on **0G’s Modular Layer 1 blockchain**.  
 Inspired by platforms like **Binance**, I0rd integrates an **AI assistant** to deliver:
