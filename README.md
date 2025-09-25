@@ -1,6 +1,3 @@
-Here’s a polished `README.md` for **I0rd**, structured with professional Markdown formatting, technical clarity, and a bit of creative flair to capture the cosmic theme you outlined:
-
-````markdown
 # 🚀 I0rd - Decentralized AI-Powered Crypto Trading App
 
 ![I0rd Banner](https://your-image-link-here) <!-- Replace with actual banner/logo if available -->
