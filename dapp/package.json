@@ -1,0 +1,45 @@
+{
+  "name": "nft-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.3",
+    "@rainbow-me/rainbowkit": "^2.1.0",
+    "@tanstack/react-query": "^5.40.1",
+    "@uniswap/sdk-core": "^4.2.1",
+    "@uniswap/v2-sdk": "^3.3.0",
+    "axios": "^0.24.0",
+    "blo": "^1.2.0",
+    "burner-connector": "^0.0.7",
+    "daisyui": "^4.5.0",
+    "next": "^14.2.3",
+    "next-themes": "^0.2.1",
+    "nprogress": "^0.2.0",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.3.1",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.3.1",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1",
+    "use-debounce": "^8.0.4",
+    "usehooks-ts": "^2.16.0",
+    "viem": "^2.10.9",
+    "wagmi": "^2.9.2",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.8",
+    "eslint": "7",
+    "eslint-config-next": "12.0.1",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  }
+}

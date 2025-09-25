@@ -1,31 +1,29 @@
-// pages/index.tsx
-import React, { useState } from 'react';
-import Layout from '../components/Layout';
-import ChartGrid from '../components/ChartGrid';
-import CoinTabs from '../components/CoinTabs';
-import CoinDetails from '../components/CoinDetails';
-import { Coin } from '../types';
+import Head from 'next/head';
+import MainPage from '@containers/MainPage';
+import GenerationOnlineShopping from '@containers/GenerationOnlineShopping';
+import Blog from '@containers/Blog';
+import Category from '@containers/Category';
+import CryptoCoins from '@containers/CryptoCoins';
+import Mailing from '@containers/Mailing';
+import Footer from '@containers/Footer';
 
-export default function Home() {
-  const [selectedCoin, setSelectedCoin] = useState<Coin | null>(null);
-
+export default function Home(): JSX.Element {
   return (
-    <Layout>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="lg:col-span-2">
-          <ChartGrid />
-          <CoinTabs />
-        </div>
-        <div>
-          {selectedCoin ? (
-            <CoinDetails coin={selectedCoin} />
-          ) : (
-            <div className="bg-gray-800 p-4 rounded shadow-md">
-              <p className="text-gray-400">Select a coin to view details.</p>
-            </div>
-          )}
-        </div>
+    <>
+      <Head>
+        <title>NFT.Ring - Home</title>
+        <meta name="description" content="NFT.Ring - A platform for buying, selling, and exploring NFTs" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="w-full"> {/* Changed from max-w-screen-lg mx-auto */}
+        <MainPage />
+        <GenerationOnlineShopping />
+        <Blog />
+        <Category />
+        <CryptoCoins />
+        <Mailing />
+        <Footer />
       </div>
-    </Layout>
+    </>
   );
 }

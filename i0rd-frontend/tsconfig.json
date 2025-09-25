@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "noImplicitAny": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -20,12 +22,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@components/*": ["./components"],
-      "@types/*": ["./types"] 
+      "@components/*": ["components/*"],
+      "@containers/*": ["containers/*"],
+      "@types/*": ["types/*"] // Fixed: "./types" → "types/*" for consistency
     },
-
-    //support for modern javascript and web3.js
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true

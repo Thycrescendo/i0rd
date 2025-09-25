@@ -1,66 +1,38 @@
 // pages/api/coins.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
+import axios from 'axios';
 import { Coin } from '../../types';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Coin[] | { error: string }>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Coin[] | { error: string }>) {
   const { sort } = req.query;
-
-  const mockCoins: Coin[] = [
-    {
-      id: 'bitcoin',
-      name: 'Bitcoin',
-      symbol: 'BTC',
-      price: 60000 + Math.random() * 1000,
-      marketCap: 1200000000000,
-      volume: 40000000000,
-      change24h: 2.5 + Math.random() * 2,
-      priceHistory: Array.from({ length: 10 }, (_, i) => ({
-        time: (Date.now() / 1000 - 86400 * (10 - i)) | 0,
-        price: 60000 + Math.random() * 1000 - 500,
-      })),
-    },
-    {
-      id: 'ethereum',
-      name: 'Ethereum',
-      symbol: 'ETH',
-      price: 2500 + Math.random() * 100,
-      marketCap: 300000000000,
-      volume: 15000000000,
-      change24h: -1.2 + Math.random() * 2,
-      priceHistory: Array.from({ length: 10 }, (_, i) => ({
-        time: (Date.now() / 1000 - 86400 * (10 - i)) | 0,
-        price: 2500 + Math.random() * 100 - 50,
-      })),
-    },
-    {
-      id: 'cardano',
-      name: 'Cardano',
-      symbol: 'ADA',
-      price: 0.35 + Math.random() * 0.05,
-      marketCap: 12500000000,
-      volume: 300000000,
-      change24h: 1.5 + Math.random() * 1,
-      priceHistory: Array.from({ length: 10 }, (_, i) => ({
-        time: (Date.now() / 1000 - 86400 * (10 - i)) | 0,
-        price: 0.35 + Math.random() * 0.05 - 0.025,
-      })),
-    },
-  ];
-
   try {
-    let sortedCoins = [...mockCoins];
-    if (sort === 'marketCap') {
-      sortedCoins.sort((a, b) => b.marketCap - a.marketCap);
-    } else if (sort === 'volume') {
-      sortedCoins.sort((a, b) => b.volume - a.volume);
-    } else if (sort === 'gainers') {
-      sortedCoins.sort((a, b) => b.change24h - a.change24h);
-    } else if (sort === 'new') {
-      sortedCoins = sortedCoins.slice(0, 2);
-    }
-    res.status(200).json(sortedCoins);
+    const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
+      params: {
+        vs_currency: 'usd',
+        order: sort === 'marketCap' ? 'market_cap_desc' : sort === 'volume' ? 'volume_desc' : 'market_cap_desc',
+        per_page: 10,
+        page: 1,
+        sparkline: true,
+      },
+    });
+
+    const coins: Coin[] = response.data.map((coin: any) => ({
+      id: coin.id,
+      name: coin.name,
+      symbol: coin.symbol,
+      price: coin.current_price,
+      marketCap: coin.market_cap,
+      volume: coin.total_volume,
+      change24h: coin.price_change_percentage_24h,
+      priceHistory: coin.sparkline_in_7d.price.map((price: number, index: number) => ({
+        time: (Date.now() / 1000 - 604800 + index * 3600) | 0,
+        price,
+      })),
+    }));
+
+    res.status(200).json(coins);
   } catch (error) {
     console.error('API error:', error);
-    res.status(500).json({ error: 'Failed to fetch coins' });
+    res.status(500).json({ error: 'Failed to fetch coins from CoinGecko' });
   }
 }
