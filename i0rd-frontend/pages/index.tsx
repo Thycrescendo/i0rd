@@ -11,10 +11,10 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Head>
-        <title>NFT.Ring - Home</title>
-        <meta name="description" content="NFT.Ring - A platform for buying, selling, and exploring NFTs" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  <title>I0rd - Decentralized AI-Powered Crypto Trading on 0G Blockchain</title>
+  <meta name="description" content="I0rd is a decentralized, AI-powered crypto trading app built on 0G’s Modular Layer 1 blockchain. Trade crypto with real-time analysis, AI insights, and community tools for transparent, accessible trading." />
+  <link rel="icon" href="/favicon.ico" />
+</Head>
       <div className="w-full"> {/* Changed from max-w-screen-lg mx-auto */}
         <MainPage />
         <GenerationOnlineShopping />
