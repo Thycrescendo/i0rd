@@ -1,4 +1,4 @@
-// types/index.ts
+
 export interface Coin {
   id: string;
   name: string;
@@ -7,7 +7,7 @@ export interface Coin {
   marketCap: number;
   volume: number;
   change24h: number;
-  priceHistory?: { time: number; price: number }[]; // For charts
+  priceHistory: { time: number; price: number }[];
 }
 
 export interface Transaction {

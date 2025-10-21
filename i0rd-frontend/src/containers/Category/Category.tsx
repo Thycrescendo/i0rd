@@ -28,12 +28,12 @@ const Category: React.FC = () => {
     <div className="max-w-screen-lg mt-20 md:mx-auto mx-4">
       <div className="flex flex-col text-center mt-4 mb-14">
         <span className="text-darkGray font-Montserrat text-5xl font-bold leading-normal">
-          Browse by category
-        </span>
-        <span className="text-darkGray font-Montserrat text-lg mt-6">
-          This NFT website is a website that features buying and selling, news and blogs. <br />
-          Designed with a minimalist and informative concept
-        </span>
+  Browse Trading Categories
+</span>
+<span className="text-darkGray font-Montserrat text-lg mt-6">
+  Explore tokens, AI tools, and markets on I0rd's decentralized platform built on 0G blockchain. <br />
+  Trade with real-time analysis and community insights
+</span>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 cursor-pointer">
         {categories.map((item, index) => (

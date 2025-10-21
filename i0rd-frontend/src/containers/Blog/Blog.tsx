@@ -50,12 +50,12 @@ const Blog: React.FC = () => {
     <div className="max-w-screen-lg lg:m-auto mx-5">
       <div className="flex flex-col text-center mt-4 mb-14">
         <span className="text-darkGray font-Montserrat text-5xl font-bold leading-normal">
-          Exclusive NFT.Ring drops
-        </span>
-        <span className="text-darkGray font-Montserrat text-lg mt-6">
-          This NFT website is a website that features buying and selling, news and blogs. <br />
-          Designed with a minimalist and informative concept
-        </span>
+  Latest Trading Insights on I0rd
+</span>
+<span className="text-darkGray font-Montserrat text-lg mt-6">
+  Discover real-time market analysis, AI strategies, and community discussions on 0G blockchain trading. <br />
+  Designed for transparent, accessible crypto empowerment
+</span>
       </div>
       <Slider {...settings}>
         {carouselItems.map((item) => (

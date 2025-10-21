@@ -1,7 +1,20 @@
-// pages/api/coins.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 import { Coin } from '../../types';
+
+// Define the CoinGecko API response type
+interface CoinGeckoCoin {
+  id: string;
+  name: string;
+  symbol: string;
+  current_price: number;
+  market_cap: number;
+  total_volume: number;
+  price_change_percentage_24h: number;
+  sparkline_in_7d: {
+    price: number[];
+  };
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Coin[] | { error: string }>) {
   const { sort } = req.query;
@@ -16,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       },
     });
 
-    const coins: Coin[] = response.data.map((coin: any) => ({
+    const coins: Coin[] = response.data.map((coin: CoinGeckoCoin) => ({
       id: coin.id,
       name: coin.name,
       symbol: coin.symbol,
