@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Images } from '../../environment'; // Fixed typo from 'envaironmnet'
+import Image from 'next/image';
+import { Images } from '../../environment';
 
 const CryptoCoins: React.FC = () => {
   return (
@@ -7,27 +8,27 @@ const CryptoCoins: React.FC = () => {
       <div className="grid lg:grid-cols-5 md:grid-cols-2 mt-5 py-10 md:mx-0 mx-4">
         <div className="flex items-center lg:justify-start justify-center cursor-pointer">
           <Link href="https://bitcoin.org/en/" passHref>
-            <img src={Images.Btc} alt="Bitcoin" className="target" />
+            <Image src={Images.Btc} alt="Bitcoin" width={100} height={100} className="target" />
           </Link>
         </div>
         <div className="flex items-center lg:justify-start justify-center cursor-pointer">
           <Link href="https://www.blockchain.com/" passHref>
-            <img src={Images.Blockchain3} alt="Blockchain" className="target" />
+            <Image src={Images.Blockchain3} alt="Blockchain" width={100} height={100} className="target" />
           </Link>
         </div>
         <div className="flex items-center lg:justify-start justify-center cursor-pointer">
           <Link href="https://www.tether.to/" passHref>
-            <img src={Images.Tether} alt="Tether" className="target" />
+            <Image src={Images.Tether} alt="Tether" width={100} height={100} className="target" />
           </Link>
         </div>
         <div className="flex items-center lg:justify-start justify-center cursor-pointer">
           <Link href="https://shibatoken.com/" passHref>
-            <img src={Images.Shiba} alt="Shiba Inu" className="target" />
+            <Image src={Images.Shiba} alt="Shiba Inu" width={100} height={100} className="target" />
           </Link>
         </div>
         <div className="flex items-center lg:justify-start justify-center cursor-pointer">
           <Link href="https://ethereum.org/en/" passHref>
-            <img src={Images.Etherum} alt="Ethereum" className="target" />
+            <Image src={Images.Etherum} alt="Ethereum" width={100} height={100} className="target" />
           </Link>
         </div>
       </div>

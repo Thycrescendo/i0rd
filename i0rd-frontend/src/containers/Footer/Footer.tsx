@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Footer: React.FC = () => {
   return (
     <div className="max-w-screen-lg m-auto md:mt-36 mt-20">
@@ -6,17 +8,17 @@ const Footer: React.FC = () => {
           <div className="flex mb-8">
             <div className="bg-gradient-to-r from-blue1 to-blue2 w-10 h-10 rounded-full mr-4" />
             <span className="text-lg text-darkGray font-Montserrat font-bold">
-  <a href="#">I0rd</a>
-</span>
-<span className="text-darkGray font-Montserrat text-lg">
-  The world's first decentralized AI-powered crypto trading app on 0G blockchain. <br />
-  Real-time trading, AI insights, and community discovery for transparent financial empowerment.
-</span>
+              <a href="#">I0rd</a>
+            </span>
+            <span className="text-darkGray font-Montserrat text-lg">
+              The world&apos;s first decentralized AI-powered crypto trading app on 0G blockchain. <br />
+              Real-time trading, AI insights, and community discovery for transparent financial empowerment.
+            </span>
           </div>
           <span className="text-darkGray font-Montserrat text-lg">
-  The world's first decentralized AI-powered crypto trading app on 0G blockchain. <br />
-  Real-time trading, AI insights, and community discovery for transparent financial empowerment.
-</span>
+            The world&apos;s first decentralized AI-powered crypto trading app on 0G blockchain. <br />
+            Real-time trading, AI insights, and community discovery for transparent financial empowerment.
+          </span>
         </div>
         <div className="flex flex-col mr-20">
           <div className="flex md:mb-8 mb-2 md:mt-0 mt-10">

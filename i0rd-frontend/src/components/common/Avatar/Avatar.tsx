@@ -1,4 +1,5 @@
 import React, { MouseEvent } from 'react';
+import Image from 'next/image';
 
 interface AvatarProps {
   className?: string;
@@ -17,14 +18,13 @@ export const Avatar: React.FC<AvatarProps> = ({
 }) => {
   return (
     <div className={className}>
-      <img
-        style={{ width: `${size}px`, height: `${size}px` }}
+      <Image
         src={src}
-        className="rounded-full object-cover"
         alt={alt}
-        onClick={onClick}
         width={size}
         height={size}
+        className="rounded-full object-cover"
+        onClick={onClick}
       />
     </div>
   );
