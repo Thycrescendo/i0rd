@@ -33,7 +33,62 @@ const GenerationOnlineShopping: React.FC = () => {
       userName: 'Darrell Steward',
       price: '$475.22',
     },
-    // ... other items
+    {
+      url: Images.RingItem2,
+      name: 'Eleanor Pena',
+      urlNftImage: Images.BlockChain2,
+      urlAvatar: Images.User1,
+      userName: 'Cody Fisher',
+      price: '$850.22',
+    },
+    {
+      url: Images.RingItem3,
+      name: 'Darlene Robertson',
+      urlNftImage: Images.BlockChain2,
+      urlAvatar: Images.User6,
+      userName: 'Esther Howard',
+      price: '$1202',
+    },
+    {
+      url: Images.RingItem4,
+      name: 'Bessie Cooper',
+      urlNftImage: Images.BlockChain2,
+      urlAvatar: Images.User5,
+      userName: 'Kristin Watson',
+      price: '$860',
+    },
+    {
+      url: Images.RingItem5,
+      name: 'Guy Hawkins',
+      urlNftImage: Images.BlockChain2,
+      urlAvatar: Images.User4,
+      userName: 'Marvin McKinney',
+      price: '$900',
+    },
+    {
+      url: Images.RingItem6,
+      name: 'Savannah Nguyen',
+      urlNftImage: Images.BlockChain2,
+      urlAvatar: Images.User3,
+      userName: 'Savannah Nguyen',
+      price: '$1300',
+    },
+    {
+      url: Images.RingItem7,
+      name: 'Wade Warren',
+      urlNftImage: Images.BlockChain2,
+      urlAvatar: Images.User2,
+      userName: 'Cody Fisher',
+      price: '$1500',
+    },
+    {
+      url: Images.RingItem8,
+      name: 'Devon Lane',
+      urlNftImage: Images.BlockChain2,
+      urlAvatar: Images.User1,
+      userName: 'Brooklyn Simmons',
+      price: '$475',
+    },
   ];
 
   return (
@@ -70,7 +125,7 @@ const GenerationOnlineShopping: React.FC = () => {
           AI-Powered Insights on I0rd
         </span>
         <span className="text-darkGray font-Montserrat text-lg mt-6">
-          Leverage 0G’s infrastructure for real-time market analysis and trading strategies, democratizing financial empowerment with transparent, on-chain AI solutions. <br />
+          Leverage 0G&apos;s infrastructure for real-time market analysis and trading strategies, democratizing financial empowerment with transparent, on-chain AI solutions. <br />
           Trade, analyze, and discover tokens with community tools
         </span>
       </div>
