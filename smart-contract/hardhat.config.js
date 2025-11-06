@@ -1,31 +1,71 @@
-require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
+require("@nomicfoundation/hardhat-toolbox");
+require("@openzeppelin/hardhat-upgrades");
 
-const privateKey = process.env.PRIVATE_KEY;
-const rpcUrl = process.env.RPC_URL;
+// ENV Vars
+const OG_RPC_URL = process.env.OG_RPC_URL || "https://evmrpc-testnet.0g.ai";
+const OG_MAINNET_RPC_URL = process.env.OG_MAINNET_RPC_URL || "https://evmrpc.0g.ai";
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL || "";
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
 
-if (!privateKey) {
-  console.warn("Please set your PRIVATE_KEY in the .env file");
+if (!PRIVATE_KEY) {
+  console.warn("⚠️ PRIVATE_KEY missing — deployments will fail.");
 }
-if (!rpcUrl) {
-  console.warn("Please set your RPC_URL in the .env file");
-}
+const accounts = PRIVATE_KEY ? [PRIVATE_KEY] : [];
 
-/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.24",
-  networks: {
-    hardhat: {
-      // Configuration for the local Hardhat Network
-    },
-    og_testnet_v3: {
-      url: rpcUrl || "", // Fallback to empty string if not set
-      accounts: privateKey ? [`0x${privateKey}`] : [], // Add 0x prefix
-      chainId: 16601, // Updated Chain ID for 0G Testnet V3
+  solidity: {
+    version: "0.8.24",
+    settings: {
+      optimizer: { enabled: true, runs: 200 },
+      metadata: { bytecodeHash: "none" },
+      evmVersion: "paris",
     },
   },
-  // Optional: Specify etherscan API key if verification is needed later
-  // etherscan: {
-  //   apiKey: process.env.ETHERSCAN_API_KEY
-  // }
+  networks: {
+    og_galileo: {
+      chainId: 16602,
+      url: OG_RPC_URL,
+      accounts,
+      gasPrice: 3000000000,
+      gas: 5_000_000,
+    },
+    og_mainnet: {
+      chainId: 16661,
+      url: OG_MAINNET_RPC_URL,
+      accounts,
+      gasPrice: 3000000000,
+      gas: 5_000_000,
+    },
+    sepolia: {
+      chainId: 11155111,
+      url: SEPOLIA_RPC_URL,
+      accounts,
+    },
+  },
+  etherscan: {
+    apiKey: {
+      sepolia: ETHERSCAN_API_KEY,
+      og_mainnet: ETHERSCAN_API_KEY, // Use 0G explorer API key if required
+    },
+    customChains: [
+      {
+        network: "og_galileo",
+        chainId: 16602,
+        urls: {
+          apiURL: "https://explorer.testnet.0g.ai/api",
+          browserURL: "https://explorer.testnet.0g.ai",
+        },
+      },
+      {
+        network: "og_mainnet",
+        chainId: 16661,
+        urls: {
+          apiURL: "https://explorer.0g.ai/api",
+          browserURL: "https://explorer.0g.ai",
+        },
+      },
+    ],
+  },
 };
